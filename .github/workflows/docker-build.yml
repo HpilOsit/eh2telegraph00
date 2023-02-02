@@ -16,7 +16,7 @@ jobs:
         id: prep
         if: "startsWith(github.ref, 'refs/tags/v')"
         run: |
-          echo ::set-output name=tags::ghcr.io/Chromeina/ehbot:${GITHUB_REF#refs/tags/v}
+          echo ::set-output name=tags::ghcr.io/chromeina/ehbot:${GITHUB_REF#refs/tags/v}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
         with:
@@ -35,9 +35,9 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/Chromeina/ehbot:amd64
+            ghcr.io/chromeina/ehbot:amd64
             ${{ steps.prep.outputs.tags }}
       - name: Docker manifest push
         run: |
-          docker manifest create ghcr.io/Chromeina/ehbot:latest ghcr.io/qini7-sese/ehbot:amd64
-          docker manifest push ghcr.io/Chromeina/ehbot:latest
+          docker manifest create ghcr.io/chromeina/ehbot:latest ghcr.io/chromeina/ehbot:amd64
+          docker manifest push ghcr.io/chromeina/ehbot:latest
