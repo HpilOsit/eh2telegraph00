@@ -32,25 +32,25 @@ const MIN_SIMILARITY_PRIVATE: u8 = 50;
     rename_rule = "lowercase",
     description = "\
     This is a gallery synchronization robot that is convenient for users to view pictures directly in Telegram.\n\
-    这是一个方便用户直接在 Telegram 里看图的画廊同步机器人。\n\
+    這是一個方便使用者在 Telegram 裡看圖的畫廊同步機器人。\n\
     Join develop group or contact @ByteRabbit if you need.\n\
-    如有问题请在开发群里反馈或私聊 @ByteRabbit。\n\n\
+    如有任何問題請在開發群裡反應或私訊 @ByteRabbit。\n\n\
     Bot supports sync with command, text url, or image(private chat search thrashold is lower).\n\
-    机器人支持通过 命令、直接发送链接、图片(私聊搜索相似度阈值会更低) 的形式同步。\n\n\
-    Bot develop group / Bot 开发群 https://t.me/TGSyncBotWorkGroup\n\
-    And welcome to join our channel / 作者的频道 https://t.me/sesecollection\n\n\
+    機器人支援 指令、直接傳送網址、圖片(私訊搜索相似度閥值會更低) 的形式同步。\n\n\
+    Bot develop group / Bot 開發群 https://t.me/TGSyncBotWorkGroup\n\
+    And welcome to join our channel / 作者的頻道 https://t.me/sesecollection\n\n\
     These commands are supported:\n\
-    目前支持这些指令:"
+    目前支援這些指令:"
 )]
 pub enum Command {
-    #[command(description = "Display this help. 显示这条帮助信息。")]
+    #[command(description = "Display this help. 顯示這則幫助訊息。")]
     Help,
-    #[command(description = "Show bot verison. 显示机器人版本。")]
+    #[command(description = "Show bot verison. 顯示機器人的版本。")]
     Version,
-    #[command(description = "Show your account id. 显示你的账号 ID。")]
+    #[command(description = "Show your account id. 顯示你的帳號 ID。")]
     Id,
     #[command(
-        description = "Sync a gallery(e-hentai/exhentai/nhentai are supported now). 同步一个画廊(目前支持 EH/EX/NH)"
+        description = "Sync a gallery(e-hentai/exhentai/nhentai are supported now). 同步一個畫廊(目前支援 EH/EX/NH)"
     )]
     Sync(String),
 }
