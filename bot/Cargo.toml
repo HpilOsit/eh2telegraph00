@@ -1,5 +1,5 @@
 [package]
-edition = "2023"
+edition = "2021"
 name = "bot"
 version = "0.1.11"
 
