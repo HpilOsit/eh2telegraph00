@@ -70,4 +70,4 @@ jobs:
           command: test
           args: --all-features --no-run
       - name: Run cargo test
-        run: sudo bash -c "ulimit -Sl 512 && ulimit -Hl 512 && sudo -u runner RUSTUP_TOOLCHAIN=nightly /home/runner/.cargo/bin/cargo test --all-features"
+        run: sudo bash -c "ulimit -Sl 512 && ulimit -Hl 512 && sudo -u runner RUSTUP_TOOLCHAIN=nightly-2022-12-27 /home/runner/.cargo/bin/cargo test --all-features"
