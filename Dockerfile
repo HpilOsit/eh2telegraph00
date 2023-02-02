@@ -1,4 +1,4 @@
-FROM rust:1-bullseye as builder
+FROM 1.65.0-bullseye as builder
 WORKDIR /usr/src/eh2telegraph
 COPY . .
 RUN cargo build --release
