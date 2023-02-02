@@ -124,7 +124,7 @@ where
                         .send_message(msg.chat.id, escape("Usage: /sync url"))
                         .reply_to_message_id(msg.id)
                         .await;
-                    return ControlFlow::BREAK;
+                    return ControlFlow::Break;
                 }
 
                 info!(
@@ -144,7 +144,7 @@ where
             }
         };
 
-        ControlFlow::BREAK
+        ControlFlow::Break
     }
 
     pub async fn respond_admin_cmd(
@@ -162,7 +162,7 @@ where
                         .reply_to_message_id(msg.id)
                         .await;
                 });
-                ControlFlow::BREAK
+                ControlFlow::Break
             }
         }
     }
@@ -210,7 +210,7 @@ where
                     .edit_message_text(msg.chat.id, msg.id, self.sync_response(&url).await)
                     .await;
             });
-            return ControlFlow::BREAK;
+            return ControlFlow::Break;
         }
 
         // fallback to the next branch
@@ -270,7 +270,7 @@ where
                         .edit_message_text(msg.chat.id, msg.id, self.sync_response(&url).await)
                         .await;
                 });
-                ControlFlow::BREAK
+                ControlFlow::Break
             }
             None => ControlFlow::CONTINUE,
         }
@@ -345,7 +345,7 @@ where
             });
         }
 
-        ControlFlow::BREAK
+        ControlFlow::Break
     }
 
     pub async fn respond_default(
@@ -362,7 +362,7 @@ where
         }
         #[cfg(debug_assertions)]
         tracing::warn!("{:?}", msg);
-        ControlFlow::BREAK
+        ControlFlow::Break
     }
 
     async fn sync_response(&self, url: &str) -> String {
