@@ -124,7 +124,7 @@ where
                         .send_message(msg.chat.id, escape("Usage: /sync url"))
                         .reply_to_message_id(msg.id)
                         .await;
-                    return ControlFlow::BREAK;
+                    return ControlFlow::Break(());
                 }
 
                 info!(
@@ -144,7 +144,7 @@ where
             }
         };
 
-        ControlFlow::BREAK
+        ControlFlow::Break(())
     }
 
     pub async fn respond_admin_cmd(
@@ -162,7 +162,7 @@ where
                         .reply_to_message_id(msg.id)
                         .await;
                 });
-                ControlFlow::BREAK
+                ControlFlow::Break(())
             }
         }
     }
@@ -210,11 +210,11 @@ where
                     .edit_message_text(msg.chat.id, msg.id, self.sync_response(&url).await)
                     .await;
             });
-            return ControlFlow::BREAK;
+            return ControlFlow::Break(());
         }
 
         // fallback to the next branch
-        ControlFlow::CONTINUE
+        ControlFlow::Continue(())
     }
 
     pub async fn respond_caption(
@@ -232,7 +232,6 @@ where
                         .expect("Url MessageEntry found but caption is None");
                     let encoded: Vec<_> = raw
                         .encode_utf16()
-                        .into_iter()
                         .skip(entry.offset)
                         .take(entry.length)
                         .collect();
@@ -270,9 +269,9 @@ where
                         .edit_message_text(msg.chat.id, msg.id, self.sync_response(&url).await)
                         .await;
                 });
-                ControlFlow::BREAK
+                ControlFlow::Break(())
             }
-            None => ControlFlow::CONTINUE,
+            None => ControlFlow::Continue(()),
         }
     }
 
@@ -284,7 +283,7 @@ where
         let first_photo = match msg.photo().and_then(|x| x.first()) {
             Some(p) => p,
             None => {
-                return ControlFlow::CONTINUE;
+                return ControlFlow::Continue(());
             }
         };
 
@@ -324,7 +323,7 @@ where
             Some(u) => u,
             None => {
                 trace!("[photo handler] image not found");
-                return ControlFlow::CONTINUE;
+                return ControlFlow::Continue(());
             }
         };
 
@@ -345,7 +344,7 @@ where
             });
         }
 
-        ControlFlow::BREAK
+        ControlFlow::Break(())
     }
 
     pub async fn respond_default(
@@ -362,7 +361,7 @@ where
         }
         #[cfg(debug_assertions)]
         tracing::warn!("{:?}", msg);
-        ControlFlow::BREAK
+        ControlFlow::Break(())
     }
 
     async fn sync_response(&self, url: &str) -> String {

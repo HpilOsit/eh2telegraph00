@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "bot"
-version = "0.1.15"
+version = "0.1.11"
 
 [dependencies]
 eh2telegraph = {path = "../eh2telegraph"}
@@ -16,7 +16,7 @@ reqwest = {version = "0.11", default-features = false, features = ["json", "mult
 serde = {version = "1", features = ["derive"]}
 singleflight-async = {version = "0.1", features = ["hardware-lock-elision"]}
 teloxide = {version = "0.11", features = ["macros", "ctrlc_handler", "auto-send"]}
-time = {version = "0.3", features = ["local-offset", "std", "macros"]}
+time = {version = "=0.3.17", features = ["local-offset", "std", "macros"]}
 tokio = {version = "1", default-features = false, features = ["rt-multi-thread", "macros", "net", "sync", "time", "parking_lot"]}
 tracing = "0.1"
 tracing-subscriber = {version = "0.3", features = ["local-time", "parking_lot", "time"]}

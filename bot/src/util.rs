@@ -60,7 +60,7 @@ macro_rules! ok_or_break {
         match $e {
             Ok(r) => r,
             Err(_) => {
-                return ControlFlow::BREAK;
+                return ControlFlow::Break(());
             }
         }
     };

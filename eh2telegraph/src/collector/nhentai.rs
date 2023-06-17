@@ -21,8 +21,7 @@ use super::{AlbumMeta, Collector, ImageData, ImageMeta};
 
 lazy_static::lazy_static! {
     static ref TITLE_RE: Regex = Regex::new(r#"<span class="pretty">(.*?)</span>"#).unwrap();
-    // static ref PAGE_RE: Regex = Regex::new(r#"<noscript><img src="(https://t\d?\.nhentai\.net/galleries/\d+/\d+t\.\w+)"#).unwrap();
-    static ref PAGE_RE: Regex = Regex::new(r#"<noscript><img src="(https://cdn.nhentai.xxx/g/\d+/\d+t\.\w+)"#).unwrap();
+    static ref PAGE_RE: Regex = Regex::new(r#"<noscript><img src="(https://cdn\.(?:nhentai\.xxx|hentaibomb\.com)/g/\d+/\d+t\.\w+)"#).unwrap();
 
     static ref RETRY_POLICY: RetryPolicy = RetryPolicy::fixed(Duration::from_millis(200))
         .with_max_retries(5)

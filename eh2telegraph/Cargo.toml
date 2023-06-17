@@ -21,7 +21,7 @@ reqwest = {version = "0.11", default-features = false, features = ["json", "mult
 rustls = {version = "0.20", features = ["dangerous_configuration"]}
 serde = {version = "1", features = ["derive"]}
 serde_with = {version = "1", features = ["macros", "json"]}
-serde_yaml = "0.8"
+serde_yaml = "0.9"
 thiserror = "1"
 tokio = {version = "1", default-features = false, features = ["rt-multi-thread", "macros", "net", "sync", "time", "parking_lot"]}
 tracing = "0.1"
