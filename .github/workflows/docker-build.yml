@@ -43,7 +43,3 @@ jobs:
           tags: |
             ghcr.io/chromeina/ehbot:latest
             ghcr.io/chromeina/ehbot:${{ env.VERSIONED_TAG }}
-      - name: Docker manifest push
-        run: |
-          docker manifest create ghcr.io/chromeina/ehbot:latest ghcr.io/chromeina/ehbot:${{ env.VERSIONED_TAG }}
-          docker manifest push ghcr.io/chromeina/ehbot:latest
