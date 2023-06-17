@@ -41,5 +41,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/qini7-sese/ehbot:latest
-            ghcr.io/qini7-sese/ehbot:${{ env.VERSIONED_TAG }}
+            ghcr.io/chromeina/ehbot:latest
+            ghcr.io/chromeina/ehbot:${{ env.VERSIONED_TAG }}
