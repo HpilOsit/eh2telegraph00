@@ -32,7 +32,7 @@ jobs:
         with:
           registry: ghcr.io
           username: hpilosit
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Generate App Version
         run: echo VERSIONED_TAG=`git describe --tags --always` >> $GITHUB_ENV
       - name: Build docker image
