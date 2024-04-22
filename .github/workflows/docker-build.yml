@@ -19,7 +19,7 @@ jobs:
         id: prep
         if: "startsWith(github.ref, 'refs/tags/v')"
         run: |
-          echo ::set-output name=tags::ghcr.io/hpilosit/ehbot:${GITHUB_REF#refs/tags/v}
+          echo ::set-output name=tags::ghcr.io/hpilosit/ehbot1:${GITHUB_REF#refs/tags/v}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
         with:
@@ -41,5 +41,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/hpilosit/ehbot:latest
-            ghcr.io/hpilosit/ehbot:${{ env.VERSIONED_TAG }}
+            ghcr.io/hpilosit/ehbot1:latest
+            ghcr.io/hpilosit/ehbot1:${{ env.VERSIONED_TAG }}
